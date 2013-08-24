@@ -4,45 +4,51 @@
     <meta charset="UTF-8">
     <title>My finance</title>
     <link rel="stylesheet" href="css/flat-ui.css">
-    <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css"> -->
+    <link rel="stylesheet" href="css/brick-1.0beta5.css">
 </head>
 <body>
 
     <header>
-        
+        <x-appbar id="header-custom">
+            <a href="#" class="btn btn-danger">-</a>
+            <header>
+                <!-- <span class="value">Saldo</span> -->
+                <span class="value">R$ 4.000,00</span>
+            </header>
+            <a href="#" class="btn btn-primary" data-toggle-target="x-flipbox" data-toggle-prop="flipped">+</a>
+        </x-appbar>
     </header>
 
-    <div id="content">
+    <div id="content" class="conten">
         <div class="todo mrm">
-            <div class="todo-search">
-              <input class="todo-search-field" type="search" value="" placeholder="Search">
-            </div>
+        <!-- <div class="todo-search">
+        <input class="todo-search-field" type="search" value="" placeholder="Search">
+        </div> -->
             <ul>
-              <li class="todo-done">
-                <h4 class="todo-name">Estabelecimento</h4>
-                <h3 class="todo-name">R$ <b>300,00</b></h3>
-              </li>
-              <li class="todo-done">
-                <h4 class="todo-name">Estabelecimento</h4>
-                <h3 class="todo-name">R$ <b>300,00</b></h3>
-              </li>
+                <li class="todo-done">
+                    <h4 class="todo-name">Estabelecimento</h4>
+                    <h3 class="todo-name">R$ <b>300,00</b></h3>
+                </li>
             </ul>
-          </div>
-
-    </div>
-
-    <div class="col-md-12">
-      <input type="number" name="" id="value-adiciona">
-      <input type="number" name="" id="value-remove">
-    </div>
-
-     <footer>
-         <div class="row">
-          <a href="#" class="btn btn-large btn-block btn-danger col-md-2">-</a>
-          <span class="col-md-8"> R$ 1.000,00 </span>
-          <a href="#" class="btn btn-large btn-block btn-danger col-md-2" id="dial">+</a>
         </div>
+    </div>
+
+    <footer class="footer">
+      <input type="number" name="" id="value-adiciona" placeholder="Ex: R$200,00">
+      <input type="text" name="" id="text-value-adiciona" placeholder="Descrição gasto">
+      <!-- <input type="number" name="" id="value-remove" placeholder="Ex: R$200,00"> -->
     </footer>
+
+    <script src="/js/brick-1.0beta5.js"></script>
+    <script src="/js/brick-1.0beta5.js"></script>
+    <script src="/js/brick-1.0beta5.js"></script>
+    <script>
+    document.addEventListener('DOMComponentsLoaded', function(){
+        toggleButton.addEventListener("click", function(){
+            flipBox.toggle(); 
+        });
+    });
+</script>
 
 </body>
 </html>
