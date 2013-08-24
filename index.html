@@ -1,54 +1,65 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
     <meta charset="UTF-8">
     <title>My finance</title>
     <link rel="stylesheet" href="css/flat-ui.css">
     <link rel="stylesheet" href="css/brick-1.0beta5.css">
 </head>
-<body>
+<body ng-controller="myFinance">
 
     <header>
         <x-appbar id="header-custom">
             <a href="#" class="btn btn-danger">-</a>
             <header>
                 <!-- <span class="value">Saldo</span> -->
-                <span class="value">R$ 4.000,00</span>
+                <span class="value">R$ {{ valueTotalMoney }}</span>
             </header>
-            <a href="#" class="btn btn-primary" data-toggle-target="x-flipbox" data-toggle-prop="flipped">+</a>
+            <a href="#" id="nav" class="btn btn-primary" data-toggle-target="x-flipbox" data-toggle-prop="flipped">+</a>
         </x-appbar>
     </header>
 
-    <div id="content" class="conten">
+    <div id="content" class="content">
         <div class="todo mrm">
-        <!-- <div class="todo-search">
-        <input class="todo-search-field" type="search" value="" placeholder="Search">
-        </div> -->
+        <div class="todo-search">
+            <input class="todo-search-field" type="search" value="" placeholder="Search" ng-model="searchText">
+        </div>
             <ul>
-                <li class="todo-done">
-                    <h4 class="todo-name">Estabelecimento</h4>
-                    <h3 class="todo-name">R$ <b>300,00</b></h3>
+                <li class="todo-done" ng-repeat="dado in dados | filter:searchText">
+                    <h4 class="todo-name">{{ dado.description }}</h4>
+                    <h3 class="todo-name">R$ <b>{{ dado.valor }}</b></h3>
                 </li>
             </ul>
         </div>
     </div>
 
-    <footer class="footer">
-      <input type="number" name="" id="value-adiciona" placeholder="Ex: R$200,00">
-      <input type="text" name="" id="text-value-adiciona" placeholder="Descrição gasto">
-      <!-- <input type="number" name="" id="value-remove" placeholder="Ex: R$200,00"> -->
+    <footer class="footer" id="footer" style="display: none; margin-top: 30px; float: left">
+      <input type="number" name="" id="value-adiciona" placeholder="Ex: R$200,00" ng-model="textValor">
+      <input class="input-text" type="text" name="" id="text-value-adiciona" placeholder="Descrição gasto" ng-model="TextDescription">
+      <button class="btn btn-block btn-warning" ng-click="addTodo()">Salvar</button>
+      <button class="btn btn-block" id="back" style="margin-top: 40px">Voltar</button>
     </footer>
 
-    <script src="/js/brick-1.0beta5.js"></script>
-    <script src="/js/brick-1.0beta5.js"></script>
-    <script src="/js/brick-1.0beta5.js"></script>
+    <script src="./js/angular.min.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/brick-1.0beta5.js"></script>
     <script>
-    document.addEventListener('DOMComponentsLoaded', function(){
-        toggleButton.addEventListener("click", function(){
-            flipBox.toggle(); 
-        });
+    var content = document.getElementById("content");
+    var footer = document.getElementById("footer");
+    var nav = document.getElementById("nav");
+    var back = document.getElementById("back");
+
+    nav.addEventListener("click", function() {
+        content.style.display = "none"
+        footer.style.display = "block"
     });
-</script>
+
+    back.addEventListener("click", function() {
+        content.style.display = "block"
+        footer.style.display = "none"
+    });
+
+    </script>
 
 </body>
 </html>

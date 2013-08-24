@@ -44,10 +44,12 @@ body {
 
 .content {
 	width: 100%;
+	margin-top: 25px;
 }
 
 input[type="number"], input[type="text"] {
-	width: 90%;
+	width: 41%;
+	float: left;
 	background: #FFF;
 }
 
@@ -81,15 +83,29 @@ input[type="number"], input[type="text"] {
 	}
 }
 
+.todo-search {
+	padding: 5px 10px;
+	.border-radius(0px);
+}
+
+// .input-text {
+// 	width: 40% !important;
+// 	float: left;
+// }
+
 footer {
-    position: fixed;
     width: 100%;
-    height: 2.5rem;
-    bottom: 0;
     background: none;
 
     input {
     	margin: 0 0 5px 10px;
+    }
+
+    .btn {
+    	margin-left: 10px;
+    	width: 94%;
+    	display: block;
+    	float: left;
     }
 
     &.footer {

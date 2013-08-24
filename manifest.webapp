@@ -11,7 +11,7 @@
         "128": "/Firefox-OS-Boilerplate-App/images/logo128.png"
     },
     "developer": {
-        "name": "Giovanni Keppelen",
+        "name": "Giovanni Keppelen and Rodrigo Nogueira",
         "url": "http://bygiovanni.com.br"
     },
     "installs_allowed_from": ["*"],
