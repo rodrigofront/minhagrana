@@ -8,7 +8,7 @@ function myFinance ( $scope ) {
     $scope.dados = JSON.parse( localStorage.getItem("myDados") );
   }
 
-  $scope.valueTotalMoney = 200;
+  $scope.valueTotalMoney = 0;
   
   
   $scope.addTodo = function() {
